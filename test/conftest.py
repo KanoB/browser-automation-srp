@@ -1,11 +1,11 @@
-import time
+import os
 import pytest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
-HEADLESS = False
+HEADLESS = os.environ.get("HEADLESS", 0) == 1
 
 @pytest.fixture
 def driver():
@@ -23,8 +23,6 @@ def driver():
             'enable-automation', # Disable banner warning chrome is running with automation
         ],
     )
-    # Disable develooper mode extensions
-    # options.add_experimental_option('useAutomationExtension', True)
     
     if HEADLESS:
         options.add_argument("--headless")
@@ -33,6 +31,5 @@ def driver():
 
     yield driver
     
-    time.sleep(3)
-    # print("Closing browser")
+    # time.sleep(2)
     driver.quit()

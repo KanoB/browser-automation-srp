@@ -15,7 +15,7 @@ class SearchWidget(BaseElement):
         for character in data:
             self.web_element.send_keys(character)
             # Intentional delay to emulate human input
-            time.sleep(0.20)
+            time.sleep(0.03)
 
     def search(self, data) -> None:
         self.enter(data)
