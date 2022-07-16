@@ -7,7 +7,6 @@ class BasePage():
     url = None
 
     def __init__(self, driver) -> None:
-        # super().__init__()
         self.driver = driver
 
     def go(self):

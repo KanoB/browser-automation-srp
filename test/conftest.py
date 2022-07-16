@@ -5,9 +5,9 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
-HEADLESS = os.environ.get("HEADLESS", 0) == 1
+HEADLESS = os.environ.get("HEADLESS") == "true"
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def driver():
     driver_location = r"C:\tools\webdriver\chromedriver.exe"
     service = Service(executable_path=driver_location, log_path="./chromedriver.log")
