@@ -17,10 +17,8 @@ class SearchSuggestions(BaseElement):
         self.getSuggestions()[index-1].click()
 
     def getSuggestions(self):
-        return [x for x in self.web_element if x.text != '']
+        return [x for x in self.web_element if x.text != ''][1:] # First one is the searched keyword(s)
 
     def text(self):
-        suggestions = []
-        for element in self.web_element:
-            suggestions.append(element.text)
-        return suggestions
+        return [x.text for x in self.getSuggestions()]
+
