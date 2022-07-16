@@ -1,4 +1,4 @@
-from webtester.GoogleMain.GoogleMainPage import GoogleMainPage
+from webtester.main.GoogleMainPage import GoogleMainPage
 
 from .NavigationBar import NavigationBar
 from .ResultStat import ResultStat
