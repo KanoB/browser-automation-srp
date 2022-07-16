@@ -2,8 +2,8 @@ import pytest
 
 from webtester.GooglePages import GoogleMainPage 
 
-#@pytest.mark.parametrize("keyword,index", [("passion fitness", 3), ("robot", 6), ("lizzard", 8)])
-def test_GoogleWorkflow(driver, keyword="robot", index=3):
+@pytest.mark.parametrize("keyword,index", [("passion fitness", 3), ("robot", 6), ("lizzard", 8)])
+def test_GoogleWorkflow(driver, keyword, index):
 
     google_main_page = GoogleMainPage(driver)
     google_main_page.go()
