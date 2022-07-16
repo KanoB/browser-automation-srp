@@ -3,12 +3,14 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from webtester.BaseElement import BaseElement
+from webtester.common.Locator import Locator
+from webtester.common.BaseElement import BaseElement
 
 class SearchWidget(BaseElement):
 
     def __init__(self, driver) -> None:
-        super().__init__(driver, "q", By.NAME)
+        locator = Locator(by=By.NAME, value="q")
+        super().__init__(driver, locator)
     
     def enter(self, data) -> None:
         self.web_element.clear()

@@ -1,11 +1,13 @@
 from selenium.webdriver.common.by import By
 
-from webtester.BaseElement import BaseElement
+from webtester.common.Locator import Locator
+from webtester.common.BaseElement import BaseElement
 
 class SearchSuggestions(BaseElement):
 
     def __init__(self, driver) -> None:
-        super().__init__(driver, "li.sbct", By.CSS_SELECTOR)
+        locator = Locator(by=By.CSS_SELECTOR, value="li.sbct")
+        super().__init__(driver, locator)
 
     def find(self):
         elements = self.wait.until(lambda x: len(self.driver.find_elements(*self.locator)) > 5)
