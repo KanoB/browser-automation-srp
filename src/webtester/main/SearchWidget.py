@@ -21,4 +21,4 @@ class SearchWidget(BaseElement):
 
     def search(self, data) -> None:
         self.enter(data)
-        self.enter(Keys.ENTER)
+        self.web_element.send_keys(Keys.ENTER)

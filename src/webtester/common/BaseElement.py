@@ -1,5 +1,7 @@
+from selenium.webdriver.remote.webdriver import WebElement
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 class BaseElement():
     def __init__(self, driver, locator) -> None:
@@ -19,6 +21,9 @@ class BaseElement():
         self.wait.until(EC.element_to_be_clickable(self.locator))
         self.web_element.click()
         return None
+
+    def isDisplayed(self):
+        return isinstance(self.web_element, WebElement)
 
     @property
     def text(self):
